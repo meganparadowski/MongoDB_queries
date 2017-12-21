@@ -5,7 +5,7 @@ Last login: Sun Dec 10 12:56:11 2017 from cpe-68-173-158-26.nyc.res.rr.com
 You are using 0% of your 1.0G quota for /home/mp4060.
 You are using 17% of your 1.0G quota for /web/mp4060.
 [mp4060@i6 ~]$ module load mongodb-3.2.0
-[mp4060@i6 ~]$ mongo mp4060 --host class-mongodb.cims.nyu.edu -u mp4060 -p MB9iupuE
+[mp4060@i6 ~]$ mongo mp4060 --host class-mongodb.cims.nyu.edu -u mp4060 -p *******
 MongoDB shell version: 3.2.0
 connecting to: class-mongodb.cims.nyu.edu:27017/mp4060
 > db.zips.count({"state":"TX"})
