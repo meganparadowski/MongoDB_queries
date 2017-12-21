@@ -1,0 +1,154 @@
+Last login: Sun Dec 10 12:55:53 on ttys000
+Megans-MacBook-Air-2:~ meganparadowski$ ssh i6.cims.nyu.edu -l mp4060
+Password: 
+Last login: Sun Dec 10 12:56:11 2017 from cpe-68-173-158-26.nyc.res.rr.com
+You are using 0% of your 1.0G quota for /home/mp4060.
+You are using 17% of your 1.0G quota for /web/mp4060.
+[mp4060@i6 ~]$ module load mongodb-3.2.0
+[mp4060@i6 ~]$ mongo mp4060 --host class-mongodb.cims.nyu.edu -u mp4060 -p MB9iupuE
+MongoDB shell version: 3.2.0
+connecting to: class-mongodb.cims.nyu.edu:27017/mp4060
+> db.zips.count({"state":"TX"})
+1671
+> db.zips.find({"state":"GA","pop":{$ne:0}}).sort({"pop":1}).limit(5)
+{ "_id" : "30346", "city" : "ATLANTA", "loc" : [ -84.333354, 33.926717 ], "pop" : 18, "state" : "GA" }
+{ "_id" : "30148", "city" : "MARBLE HILL", "loc" : [ -84.337151, 34.415353 ], "pop" : 98, "state" : "GA" }
+{ "_id" : "31743", "city" : "DE SOTO", "loc" : [ -84.027101, 31.950186 ], "pop" : 112, "state" : "GA" }
+{ "_id" : "31327", "city" : "SAPELO ISLAND", "loc" : [ -81.267933, 31.421948 ], "pop" : 120, "state" : "GA" }
+{ "_id" : "31066", "city" : "MUSELLA", "loc" : [ -84.045591, 32.820228 ], "pop" : 121, "state" : "GA" }
+> db.zips.find({"city":"BRONX"},{_id:1,"pop":1}).limit(3)
+{ "_id" : "10451", "pop" : 42854 }
+{ "_id" : "10452", "pop" : 55890 }
+{ "_id" : "10454", "pop" : 35994 }
+> db.zips.count({"state":{$nin:["HI","AK","PR"]}})
+29078
+> db.zips.count({"state":{$in:["NY","NJ","CT"]}})
+2398
+> db.zips.find({"state":"MA"}).sort({"city":1})
+{ "_id" : "02351", "city" : "ABINGTON", "loc" : [ -70.954293, 42.116715 ], "pop" : 13849, "state" : "MA" }
+{ "_id" : "01720", "city" : "ACTON", "loc" : [ -71.448255, 42.475076 ], "pop" : 15514, "state" : "MA" }
+{ "_id" : "02743", "city" : "ACUSHNET", "loc" : [ -70.908652, 41.6997 ], "pop" : 9601, "state" : "MA" }
+{ "_id" : "01220", "city" : "ADAMS", "loc" : [ -73.117225, 42.622319 ], "pop" : 9901, "state" : "MA" }
+{ "_id" : "01001", "city" : "AGAWAM", "loc" : [ -72.622739, 42.070206 ], "pop" : 15338, "state" : "MA" }
+{ "_id" : "02134", "city" : "ALLSTON", "loc" : [ -71.132866, 42.353519 ], "pop" : 23775, "state" : "MA" }
+{ "_id" : "01913", "city" : "AMESBURY", "loc" : [ -70.936681, 42.855879 ], "pop" : 14970, "state" : "MA" }
+{ "_id" : "01810", "city" : "ANDOVER", "loc" : [ -71.156481, 42.64956 ], "pop" : 29161, "state" : "MA" }
+{ "_id" : "02174", "city" : "ARLINGTON", "loc" : [ -71.162517, 42.417098 ], "pop" : 44539, "state" : "MA" }
+{ "_id" : "01430", "city" : "ASHBURNHAM", "loc" : [ -71.92666, 42.649614 ], "pop" : 5433, "state" : "MA" }
+{ "_id" : "01431", "city" : "ASHBY", "loc" : [ -71.817369, 42.674462 ], "pop" : 2649, "state" : "MA" }
+{ "_id" : "01330", "city" : "ASHFIELD", "loc" : [ -72.810998, 42.523207 ], "pop" : 1535, "state" : "MA" }
+{ "_id" : "01721", "city" : "ASHLAND", "loc" : [ -71.458347, 42.253909 ], "pop" : 12066, "state" : "MA" }
+{ "_id" : "01222", "city" : "ASHLEY FALLS", "loc" : [ -73.320195, 42.059552 ], "pop" : 561, "state" : "MA" }
+{ "_id" : "02702", "city" : "ASSONET", "loc" : [ -71.060736, 41.797458 ], "pop" : 3614, "state" : "MA" }
+{ "_id" : "02703", "city" : "ATTLEBORO", "loc" : [ -71.30092, 41.929599 ], "pop" : 38528, "state" : "MA" }
+{ "_id" : "01501", "city" : "AUBURN", "loc" : [ -71.839144, 42.205502 ], "pop" : 15007, "state" : "MA" }
+{ "_id" : "02166", "city" : "AUBURNDALE", "loc" : [ -71.247598, 42.345928 ], "pop" : 6123, "state" : "MA" }
+{ "_id" : "02322", "city" : "AVON", "loc" : [ -71.043738, 42.125825 ], "pop" : 4594, "state" : "MA" }
+{ "_id" : "01432", "city" : "AYER", "loc" : [ -71.578763, 42.55914 ], "pop" : 6871, "state" : "MA" }
+Type "it" for more
+> db.zips.find().pretty().sort({"pop":-1}).limit(10)
+{
+	"_id" : "60623",
+	"city" : "CHICAGO",
+	"loc" : [
+		-87.7157,
+		41.849015
+	],
+	"pop" : 112047,
+	"state" : "IL"
+}
+{
+	"_id" : "11226",
+	"city" : "BROOKLYN",
+	"loc" : [
+		-73.956985,
+		40.646694
+	],
+	"pop" : 111396,
+	"state" : "NY"
+}
+{
+	"_id" : "10021",
+	"city" : "NEW YORK",
+	"loc" : [
+		-73.958805,
+		40.768476
+	],
+	"pop" : 106564,
+	"state" : "NY"
+}
+{
+	"_id" : "10025",
+	"city" : "NEW YORK",
+	"loc" : [
+		-73.968312,
+		40.797466
+	],
+	"pop" : 100027,
+	"state" : "NY"
+}
+{
+	"_id" : "90201",
+	"city" : "BELL GARDENS",
+	"loc" : [
+		-118.17205,
+		33.969177
+	],
+	"pop" : 99568,
+	"state" : "CA"
+}
+{
+	"_id" : "60617",
+	"city" : "CHICAGO",
+	"loc" : [
+		-87.556012,
+		41.725743
+	],
+	"pop" : 98612,
+	"state" : "IL"
+}
+{
+	"_id" : "90011",
+	"city" : "LOS ANGELES",
+	"loc" : [
+		-118.258189,
+		34.007856
+	],
+	"pop" : 96074,
+	"state" : "CA"
+}
+{
+	"_id" : "60647",
+	"city" : "CHICAGO",
+	"loc" : [
+		-87.704322,
+		41.920903
+	],
+	"pop" : 95971,
+	"state" : "IL"
+}
+{
+	"_id" : "60628",
+	"city" : "CHICAGO",
+	"loc" : [
+		-87.624277,
+		41.693443
+	],
+	"pop" : 94317,
+	"state" : "IL"
+}
+{
+	"_id" : "90650",
+	"city" : "NORWALK",
+	"loc" : [
+		-118.081767,
+		33.90564
+	],
+	"pop" : 94188,
+	"state" : "CA"
+}
+> exit
+bye
+[mp4060@i6 ~]$ logout
+Connection to i6.cims.nyu.edu closed.
+Megans-MacBook-Air-2:~ meganparadowski$ 
